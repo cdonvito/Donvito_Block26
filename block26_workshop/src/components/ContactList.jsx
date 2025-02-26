@@ -11,7 +11,7 @@ const dummyContacts = [
 
 const api = "https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users";
 
-function ContactList() { 
+function ContactList({setSelectedContactId}) { 
 
   const [contacts, setContacts] = useState(dummyContacts);
   console.log("Contacts: ", contacts);
@@ -47,7 +47,7 @@ function ContactList() {
             </tr>
             {
               contacts.map((contact) => {
-                return <ContactRow key={contact.id} contact={contact} />;
+                return <ContactRow key={contact.id} contact={contact} setSelectedContactId={setSelectedContactId} />;
               })
             }
           </tbody>
