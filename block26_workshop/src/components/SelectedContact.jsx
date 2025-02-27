@@ -35,12 +35,12 @@ function SelectedContact({ setSelectedContactId, selectedContactId }) {
       </thead>
       <tbody>
         <tr>
-          <td>Username</td>
-          <td>Email</td>
-          <td>Phone</td>
-          <td>Website</td>
-          <td>Company</td>
-          <td>Address</td>
+          <td className="header_t">Username</td>
+          <td className="header_t">Email</td>
+          <td className="header_t">Phone</td>
+          <td className="header_t">Website</td>
+          <td className="header_t">Company</td>
+          <td className="header_t">Address</td>
         </tr>
         <tr>
           <td>{contact.username}</td>
@@ -49,6 +49,22 @@ function SelectedContact({ setSelectedContactId, selectedContactId }) {
           <td>{contact.website}</td>
           <td>{contact.company.name}</td>
           <td>{`${contact.address.street}, ${contact.address.suite}, ${contact.address.city} ${contact.address.zipcode}`}</td>
+        </tr>
+        <tr>
+          <td
+            colSpan={6}
+          >{`Company Catch Phrase: ${contact.company.catchPhrase}`}</td>
+        </tr>
+        <tr>
+          <td colSpan={6}>
+            <button
+              onClick={() => {
+                setSelectedContactId(null);
+              }}
+            >
+              Back to Contact List
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
